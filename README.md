@@ -20,7 +20,6 @@ Unfortunately, I don't have any plans to support 3D rendering yet.
 - GLAD
 - GLFW
 - STB Image
-- STB True Type
 
 ## Compilation & running
 Compilation is quite simple. Just run `make`, and if everything is installed, it should compile
