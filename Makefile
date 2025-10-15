@@ -6,11 +6,11 @@ ifeq ($(UNAME_S), Darwin)
 	CFLAGS = -Wall -Wextra -O2 -std=c11 -MMD -MP -I /opt/homebrew/include -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image
 	LDFLAGS = -L/opt/homebrew/lib -lglfw -framework OpenGL \
 			  -framework Cocoa -framework IOKit -framework CoreVideo \
-			  -Wl,-rpath,/opt/homebrew/lib
+			  -Wl,-rpath,/opt/homebrew/lib -Llibs -lfreetype
 else
 	CXXFLAGS = -Wall -Wextra -O2 -std=c++20 -MMD -MP -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image -I src/vendor/stb_truetype
 	CFLAGS = -Wall -Wextra -O2 -std=c11 -MMD -MP -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image
-	LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
+	LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -Llibs -lfreetype
 endif
 
 
