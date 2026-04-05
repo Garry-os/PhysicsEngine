@@ -3,11 +3,11 @@
 A 2D game engine written in C++. It is still in early development. <br>
 It uses OpenGL for rendering and GLFW for creating window.
 
-## Status
-For now, you probably can't use this game engine since there's no documentations. <br>
+## Usage
+For learning to use this engine, go to `docs/` and find the documentations accordingly.
 
 ### Platform (Operating systems)
-Currently, this game engine is only supporting **Linux** and **MacOS**. It is developed on MacOS mainly. <br> <br>
+Currently, this game engine is only supporting **Linux** and **MacOS**. It is developed on Linux mainly. <br> <br>
 **NOTE**: It doesn't support **Windows** and I'm not planning to support it anytime soon.
 If you want, you could run a virtual machine, or even WSL2.
 

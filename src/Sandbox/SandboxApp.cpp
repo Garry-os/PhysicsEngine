@@ -40,7 +40,7 @@ void SandboxApp::Update(float deltaTime)
 
     Engine::Renderer2D::BeginScene(m_Camera);
 
-    Engine::Renderer2D::DrawCircle({50.0f}, 25.0f, {1.0f, 0.0f, 0.0f, 1.0f});
+    Engine::Renderer2D::DrawCircle({200.f}, 25.0f, {1.0f, 0.0f, 0.0f, 1.0f});
     Engine::Renderer2D::DrawQuad({100.0f}, {50.0f}, {1.0f, 1.0f, 0.0f, 1.0f});
     Engine::Renderer2D::DrawQuad({400.0f}, {150.0f}, m_Texture);
 
