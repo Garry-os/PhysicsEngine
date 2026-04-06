@@ -15,8 +15,8 @@ go to `docs/events.md`.
 
 ## API functions
 ### IsKeyPressed()
-Check the keyboard state if a key has been pressed.
-Parameter: Keycode
+Check the keyboard state if a key has been pressed. <br>
+Parameter: Keycode <br>
 The keycode can be used as `ENGINE_KEY_[KEY]`.
 
 Example:
@@ -28,8 +28,8 @@ if (Engine::Input::IsKeyPressed(ENGINE_KEY_A))
 ```
 
 ### IsMouseButtonPressed()
-Check the mouse state if a mouse button has been pressed (e.g left-click).
-Parameter: Mouse code.
+Check the mouse state if a mouse button has been pressed (e.g left-click). <br>
+Parameter: Mouse code. <br>
 The mouse code can be used as `ENGINE_MOUSE_BUTTON_[BUTTON]`
 
 Example:
@@ -41,12 +41,12 @@ if (Engine::Input::IsMouseButtonPressed(ENGINE_MOUSE_BUTTON_LEFT))
 ```
 
 ### GetMouseX()
-Get the mouse's X coordinate.
-Parameter: **None**
+Get the mouse's X coordinate. <br>
+Parameter: **None** <br>
 Returns the X coordinate.
 
 ### GetMouseY()
-Get the mouse's Y coordinate.
-Parameter: **None**
+Get the mouse's Y coordinate. <br>
+Parameter: **None** <br>
 Returns the Y coordinate.
 
