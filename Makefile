@@ -1,43 +1,22 @@
-CXX = g++
-UNAME_S = $(shell uname -s)
+include config.mk
 
-ifeq ($(UNAME_S), Darwin)
-	CXXFLAGS = -Wall -Wextra -O2 -std=c++20 -MMD -MP -I /opt/homebrew/include -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image -I src/vendor/stb_truetype
-	CFLAGS = -Wall -Wextra -O2 -std=c11 -MMD -MP -I /opt/homebrew/include -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image
-	LDFLAGS = -L/opt/homebrew/lib -lglfw -framework OpenGL \
-			  -framework Cocoa -framework IOKit -framework CoreVideo \
-			  -Wl,-rpath,/opt/homebrew/lib
-else
-	CXXFLAGS = -Wall -Wextra -O2 -std=c++20 -MMD -MP -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image -I src/vendor/stb_truetype
-	CFLAGS = -Wall -Wextra -O2 -std=c11 -MMD -MP -I src/ -I src/vendor/glad/include -I src/vendor -I src/vendor/stb_image
-	LDFLAGS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
-endif
+export TOP_DIR := $(CURDIR)
 
+## Detect all projects
+PROJECTS_DIRS := $(wildcard projects/*/)
+PROJECTS 	  := $(notdir $(PROJECTS_DIRS))
 
-CC = gcc
+.PHONY: all engine projects clean
+all: engine projects
 
-LD = g++
+engine:
+	@ $(MAKE) -C src/Engine BUILD_DIR=$(abspath build)
 
-CPP_SOURCES := $(shell find src -name "*.cpp")
-CPP_OBJECTS := $(patsubst src/%.cpp, build/objects/cpp/%.o, $(CPP_SOURCES))
-
-C_SOURCES := $(shell find src -name "*.c")
-C_OBJECTS := $(patsubst src/%.c, build/objects/c/%.o, $(C_SOURCES))
-
-.PHONY: all engine clean
-all: engine
-
-engine: build/engine
-build/engine: $(CPP_OBJECTS) $(C_OBJECTS)
-	$(LD) $(LDFLAGS) -o $@ $^
-
-build/objects/cpp/%.o: src/%.cpp Makefile
-	@ mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-build/objects/c/%.o: src/%.c Makefile
-	@ mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c -o $@ $<
+## Compile projects
+projects:
+	@ for project in $(PROJECTS); do \
+		$(MAKE) -C projects/$$project BUILD_DIR=$(abspath build); \
+	done
 
 clean:
 	rm -rf build

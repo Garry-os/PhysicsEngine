@@ -1,5 +1,6 @@
-#include <Sandbox/SandboxApp.h>
+#pragma once
 #include <GLFW/glfw3.h>
+#include "../../projects/Sandbox/SandboxApp.h"
 
 int main()
 {
