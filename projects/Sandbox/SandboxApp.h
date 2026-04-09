@@ -7,8 +7,8 @@ public:
     SandboxApp() = default;
     ~SandboxApp() = default;
 
-    void Start();
-    void Update(float deltaTime);
+    void Start() override;
+    void Update(float deltaTime) override;
     void OnEvent(Engine::Event& event) override;
 
 private:

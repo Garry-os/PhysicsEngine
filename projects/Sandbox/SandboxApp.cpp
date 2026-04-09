@@ -98,3 +98,8 @@ void SandboxApp::OnEvent(Engine::Event& event)
     }
 }
 
+Engine::Application* CreateApp()
+{
+	return new SandboxApp();
+}
+

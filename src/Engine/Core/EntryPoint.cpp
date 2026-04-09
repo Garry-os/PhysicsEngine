@@ -1,13 +1,12 @@
-#pragma once
 #include <GLFW/glfw3.h>
-#include "../../projects/Sandbox/SandboxApp.h"
+#include <Engine/Engine.h>
 
 int main()
 {
     Engine::Logger::Init();
 
-    // Create a sandbox app
-    SandboxApp* app = new SandboxApp();
+    // Create an application
+	Engine::Application* app = Engine::CreateApp();
 
     app->Start();
     Engine::Window& window = app->GetWindow();
