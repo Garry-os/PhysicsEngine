@@ -11,10 +11,6 @@ Currently, this game engine is only supporting **Linux** and **MacOS**. It is de
 **NOTE**: It doesn't support **Windows** and I'm not planning to support it anytime soon.
 If you want, you could run a virtual machine, or even WSL2.
 
-## Plans
-In the future, I would try to add a simple documentations when this game engine is more complete and usable. <br>
-Unfortunately, I don't have any plans to support 3D rendering yet.
-
 ## Third-parties
 - GLM
 - GLAD
