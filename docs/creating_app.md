@@ -13,7 +13,14 @@ include ../common.mk
 
 ## Making an app
 First, you need to define your game's class in a header file. <br>
-This class must inherits from `Engine::Application`, and implement functions such as `Start()`, `Update()`, and `OnEvent()`. <br>
+This class must inherits from `Engine::Application`, and implement functions such as `Start()`, `Update()`, `FixedUpdate()` and `OnEvent()`. <br>
+
+### Application functions
+The function `Start()` is called during the engine's initialization. <br>
+The `Update()` function is the application's core, it is basically a game loop. <br> <br>
+If you're building a physics simulation, it is handy to use `FixedUpdate()` as it runs every 0.02 seconds, making it stable for physics applications. <br> <br>
+The `OnEvent()` function is also useful for handling events without polling, see more in `docs/events.md`.
+
 
 Example:
 ```cpp
@@ -72,6 +79,14 @@ void SandboxApp::Update(float deltaTime)
     Engine::Renderer2D::DrawQuad({100.0f}, {50.0f}, {1.0f, 1.0f, 0.0f, 1.0f});
 
     Engine::Renderer2D::EndScene();
+}
+
+// Called every 0.02 seconds
+// Useful for physics applications
+// deltaTime is a fixed 0.02f
+void SandboxApp::FixedUpdate(float deltaTime)
+{
+    // Handle physics
 }
 
 void SandboxApp::OnEvent(Engine::Event& event)

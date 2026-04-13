@@ -13,6 +13,7 @@ namespace Engine
 
 		virtual void Start() = 0;
 		virtual void Update(float deltaTime) = 0;
+		virtual void FixedUpdate(float deltaTime) = 0;
         virtual void OnEvent(Event& event) = 0;
 
         Window& GetWindow() const { return *m_Window; }

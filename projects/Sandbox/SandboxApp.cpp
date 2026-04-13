@@ -47,6 +47,11 @@ void SandboxApp::Update(float deltaTime)
     Engine::Renderer2D::EndScene();
 }
 
+void SandboxApp::FixedUpdate(float deltaTime)
+{
+
+}
+
 void SandboxApp::OnEvent(Engine::Event& event)
 {
     if (event.GetEventType() == Engine::EventType::KeyPressed)
