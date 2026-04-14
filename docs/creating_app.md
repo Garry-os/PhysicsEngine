@@ -21,6 +21,7 @@ The `Update()` function is the application's core, it is basically a game loop. 
 If you're building a physics simulation, it is handy to use `FixedUpdate()` as it runs every 0.02 seconds, making it stable for physics applications. <br> <br>
 The `OnEvent()` function is also useful for handling events without polling, see more in `docs/events.md`.
 
+When the engine is starting, you will also need to implement a function called `Engine::CreateApp()`. It returns a pointer to the `Engine::Application`. It can be as simple as just returning a pointer to the sandbox application's instance.
 
 Example:
 ```cpp
@@ -98,6 +99,11 @@ void SandboxApp::OnEvent(Engine::Event& event)
         auto& keyEvent = static_cast<Engine::KeyPressedEvent&>(event);
         LOG("Key code: %d\n", keyEvent.GetKeyCode());
     }
+}
+
+Engine::Application* Engine::CreateApp()
+{
+    return new SandboxApp();
 }
 
 ```
