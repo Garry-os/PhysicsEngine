@@ -9,11 +9,14 @@ public:
 
     void Start() override;
     void Update(float deltaTime) override;
+	void FixedUpdate(float deltaTime) override;
     void OnEvent(Engine::Event& event) override;
 
 private:
     Engine::Texture m_Texture;
-    Engine::Camera m_Camera;
+	Engine::Camera m_Camera;
+
+	Engine::Rigidbody2D m_body;
 };
 
 

@@ -23,4 +23,7 @@
 #include <Engine/Core/Application.h>
 #include <Engine/Math/Math.h>
 
+/* Physics */
+#include <Engine/Physics/Rigidbody2D.h>
+
 

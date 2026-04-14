@@ -1,4 +1,5 @@
 #include "SandboxApp.h"
+#include <iostream>
 
 void SandboxApp::Start()
 {
@@ -7,6 +8,9 @@ void SandboxApp::Start()
 
     // Get the camera
     m_Camera = Application::Get().GetCamera();
+
+	// Setup rigidbody
+	m_body = Engine::Rigidbody2D(300.0f, 200.0f, 20.0f);
 
     // Test Vector
     Engine::Math::Vector2 pos(2.0f, 1.0f);
@@ -44,12 +48,17 @@ void SandboxApp::Update(float deltaTime)
     Engine::Renderer2D::DrawQuad({100.0f}, {50.0f}, {1.0f, 1.0f, 0.0f, 1.0f});
     Engine::Renderer2D::DrawQuad({400.0f}, {150.0f}, m_Texture);
 
+	// Render the rigidbody
+	Engine::Renderer2D::DrawCircle(m_body.GetPos(), 25.0f, {1.0f, 1.0f, 0.0f, 1.0f});
+
     Engine::Renderer2D::EndScene();
 }
 
 void SandboxApp::FixedUpdate(float deltaTime)
 {
-
+	// Apply force
+	m_body.ApplyForce(250, 250);
+	m_body.Update(deltaTime);
 }
 
 void SandboxApp::OnEvent(Engine::Event& event)
@@ -103,7 +112,7 @@ void SandboxApp::OnEvent(Engine::Event& event)
     }
 }
 
-Engine::Application* CreateApp()
+Engine::Application* Engine::CreateApp()
 {
 	return new SandboxApp();
 }
