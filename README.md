@@ -18,9 +18,9 @@ If you want, you could run a virtual machine, or even WSL2.
 - STB Image
 
 ## Compilation & running
-Compilation is quite simple. Just run `make`, and if everything is installed, it should compile
-
-The output is in the `build/engine` directory
+Run `make` and it will build the engine and sandbox applications. <br>
+The executable path will depend on your sandbox app's name. (e.g `build/sandbox/sandbox`). <br>
+See `docs/creating_app.md` for a guide to create an application.
 
 ## License
 This project is licensed under GPL v3 (GNU General Public License v3.0). For more information go to the [LICENSE](LICENSE) file.
