@@ -11,13 +11,6 @@ void SandboxApp::Start()
 
 	// Setup rigidbody
 	m_body = Engine::Rigidbody2D(300.0f, 200.0f, 20.0f);
-
-    // Test Vector
-    Engine::Math::Vector2 pos(2.0f, 1.0f);
-    Engine::Math::Vector2 pos1(5.0f, 3.0f);
-
-    Engine::Math::Vector2 total = pos + pos1;
-    ENGINE_LOG_INFO("Total: x %f, y %f", total.x, total.y);
 }
 
 void SandboxApp::Update(float deltaTime)
