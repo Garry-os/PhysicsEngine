@@ -16,6 +16,16 @@ namespace Engine
             {
                 return Vector2(x + other.x, y + other.y);
             }
+
+			Vector2 operator-(const Vector2& other) const
+			{
+				return Vector2(x - other.x, y - other.y);
+			}
+
+			Vector2 operator*(float scalar)
+			{
+				return Vector2(x * scalar, y * scalar);
+			}
         };
     }
 }
